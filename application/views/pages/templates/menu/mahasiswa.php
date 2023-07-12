@@ -56,6 +56,7 @@
             <th>NIM</th>
             <th>Tanggal Lahir</th>
             <th>Fakultas</th>
+            <th colspan="1">Aksi</th>
         </tr>
 
         <?php
@@ -69,6 +70,16 @@
                 <td> <?php echo $mhs->nim ?></td>
                 <td> <?php echo $mhs->tgl_lahir ?></td>
                 <td> <?php echo $mhs->fakultas ?></td>
+                <td onclick="javascript: return confirm ('Anda yakin hapus data?')">
+                    <div>
+                        <?php echo anchor('mahasiswa/delete/' . $mhs->id, '<button type="delete" id="btnDelete" class="btn btn-danger btn-xs btn-delete"><i data-feather="trash"></i></button>'); ?>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button type="Edit" id="btnEdit" class="btn btn-warning  btn-xs btn-edit"><i data-feather="edit"></i></button>
+                    </div>
+                </td>
             </tr>
         <?php endforeach; ?>
     </table>

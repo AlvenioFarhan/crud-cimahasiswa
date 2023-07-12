@@ -55,4 +55,11 @@ class Mahasiswa extends CI_Controller
 			->set_content_type('application/json')
 			->set_output(json_encode($return));
 	}
+
+	public function delete($id)
+	{
+		$where = array ('id' => $id);
+		$this->Mahasiswa_model->delete_data($where, 'tb_mahasiswa');
+		redirect('mahasiswa');
+	}
 }

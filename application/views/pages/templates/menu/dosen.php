@@ -14,11 +14,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Data Mahasiswa</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Data Dosen</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?php echo base_url('mahasiswa/tambahaksi'); ?>">
+                    <form action="<?php echo base_url('dosen/tambahaksi'); ?>">
                         <div class="form-group mb-3">
                             <label for="">Nama Dosen :</label>
                             <input type="text" id="mhsName" name="nama" class="form-control">
