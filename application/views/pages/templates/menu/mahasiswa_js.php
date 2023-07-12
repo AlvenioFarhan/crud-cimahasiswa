@@ -23,6 +23,22 @@
                     }
                 }
             });
+
+            $.ajax({
+                url: "<?php echo base_url('mahasiswa/delete_data') ?>",
+                data: data,
+                cache: false,
+                type: "delete",
+                dataType: "json",
+                success: function(response) {
+                    if (response.status == 1) {
+                        alert(response.pesan);
+                        window.location.reload();
+                    } else {
+
+                    }
+                }
+            });
         })
     });
 </script>
