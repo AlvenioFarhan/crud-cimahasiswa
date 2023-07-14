@@ -27,7 +27,7 @@ class Mahasiswa extends CI_Controller
 
 	public function index()
 	{
-		$data['mahasiswa'] = $this->Mahasiswa_model->tampil_data()->result();
+		$data['mahasiswa'] = $this->Mahasiswa_model->tampil_data();
 		$data['title'] = 'Contoh Mahasiswa';
 		$data['view'] = 'pages/templates/menu/mahasiswa';
 		$data['script'] = 'pages/templates/menu/mahasiswa_js';
@@ -65,8 +65,10 @@ class Mahasiswa extends CI_Controller
 
 	public function edit($id)
 	{
-		$where = array('id' => $id);
-		$data['mahasiswa'] = $this->Mahasiswa_model->edit_data($where, 'tb_mahasiswa')->result();
+		// $id = $this->input->post('id');
+		// var_dump($id); die;
+		// $where = array('id' => $id);
+		$data['mahasiswa'] = $this->Mahasiswa_model->edit_data($id);
 		$data['view'] = 'pages/templates/menu/edit';
 		$this->load->view('pages/templates/index', $data);
 	}
@@ -87,7 +89,7 @@ class Mahasiswa extends CI_Controller
 	$where = array (
 		'id' => $id
 	);
-	$this->Mahasiswa_model->update_data($where, $data,'tb_mahasiswa');
+	$this->Mahasiswa_model->update_data($where, $data);
 	redirect('mahasiswa');
 	}
 

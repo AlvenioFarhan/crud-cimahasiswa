@@ -1,5 +1,6 @@
 <script>
     $(document).ready(function() {
+        // Create 
         $(document).on('click', "#btnSave", function(event) {
             event.preventDefault();
             var data = {
@@ -40,5 +41,11 @@
                 }
             });
         })
+        
+        $(document).on('click', ".btn-edit", function(e){
+            e.preventDefault();
+            alert('test')
+
+        });
     });
 </script>

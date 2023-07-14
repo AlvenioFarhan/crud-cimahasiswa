@@ -1,6 +1,7 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
     <div>
         <h4 class="mb-3 mb-md-0">Data Mahasiswa</h4>
+        <!-- <?php echo print_r($mahasiswa, true);?> -->
     </div>
 </div>
 
@@ -67,18 +68,18 @@
 
                 <tr>
                     <td> <?php echo $no++ ?> </td>
-                    <td> <?php echo $mhs->nama ?></td>
-                    <td> <?php echo $mhs->nim ?></td>
-                    <td> <?php echo $mhs->tgl_lahir ?></td>
-                    <td> <?php echo $mhs->fakultas ?></td>
+                    <td> <?php echo $mhs['nama'] ?></td>
+                    <td> <?php echo $mhs['nim'] ?></td>
+                    <td> <?php echo $mhs['tgl_lahir'] ?></td>
+                    <td> <?php echo $mhs['fakultas_name'] ? $mhs['fakultas_name'] : "---" ?></td>
                     <td onclick="javascript: return confirm ('Anda yakin hapus data?')">
                         <div>
-                            <?php echo anchor('mahasiswa/delete/' . $mhs->id, '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete')); ?>
+                        <?php echo anchor('mahasiswa/delete/' . $mhs['id'], '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete')); ?>
                         </div>
                     </td>
                     <td>
                         <div>
-                            <?php echo anchor('mahasiswa/edit/' . $mhs->id, '<i data-feather="edit"></i>', array('class' => 'btn btn-warning btn-xs btn-edit', 'data-id' => $mhs->id)); ?>
+                        <a class="btn btn-warning btn-xs btn-edit"><i data-feather="edit"></i></a>
                         </div>
                     </td>
                 </tr>

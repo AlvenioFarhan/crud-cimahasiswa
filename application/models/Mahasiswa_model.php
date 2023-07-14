@@ -3,10 +3,11 @@ class Mahasiswa_model extends CI_Model
 {
     public function tampil_data()
     {
-        return $this->db->get('tb_mahasiswa');
+        $this->db->join('tb_fakultas', 'tb_fakultas.fakultas_id=tb_mahasiswa.fakultas', 'left');
+        return $this->db->get('tb_mahasiswa')->result_array();
         // $this->db->select('*');
         // $this->db->from('tb_mahasiswa');
-        // $this->db->join('tb_fakultas, tb_fakultas_id = tb_mahasiswa.fakultas');
+        // $this->db->join('tb_fakultas, tb_fakultas.fakultas_id = tb_mahasiswa.fakultas');
         // $query = $this->db->get();
         // return $query;
     }
@@ -21,14 +22,15 @@ class Mahasiswa_model extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
     }
-    public function edit_data($where, $table)
+    public function edit_data($where)
     {
-        return $this->db->get_where($table, $where);
+        $this->db->where('id', $where);
+        return $this->db->get('tb_mahasiswa')->result_array();
     }
 
-    public function update_data($where, $data, $table)
+    public function update_data($where, $data)
     {
         $this->db->where($where);
-        $this->db->update($table,$data);
+        return $this->db->update('tb_mahasiswa',$data);
     }
 }
