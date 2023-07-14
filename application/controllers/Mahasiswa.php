@@ -67,6 +67,7 @@ class Mahasiswa extends CI_Controller
 	{
 		$where = array('id' => $id);
 		$data['mahasiswa'] = $this->Mahasiswa_model->edit_data($where, 'tb_mahasiswa')->result();
+		$data['view'] = 'pages/templates/menu/edit';
 		$this->load->view('pages/templates/index', $data);
 	}
 

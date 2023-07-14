@@ -73,12 +73,12 @@
                     <td> <?php echo $mhs->fakultas ?></td>
                     <td onclick="javascript: return confirm ('Anda yakin hapus data?')">
                         <div>
-                            <?php echo anchor('mahasiswa/delete/' . $mhs->id, '<button type="delete" id="btnDelete" class="btn btn-danger btn-xs btn-delete"><i data-feather="trash"></i></button>'); ?>
+                            <?php echo anchor('mahasiswa/delete/' . $mhs->id, '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete')); ?>
                         </div>
                     </td>
                     <td>
                         <div>
-                            <?php echo anchor('mahasiswa/update/' . $mhs->id, '<button type="Edit" id="btnEdit" class="btn btn-warning  btn-xs btn-edit"><i data-feather="edit"></i></button>'); ?>
+                            <?php echo anchor('mahasiswa/edit/' . $mhs->id, '<i data-feather="edit"></i>', array('class' => 'btn btn-warning btn-xs btn-edit', 'data-id' => $mhs->id)); ?>
                         </div>
                     </td>
                 </tr>
