@@ -41,11 +41,11 @@
                 }
             });
         })
-        
-        $(document).on('click', ".btn-edit", function(e){
-            e.preventDefault();
-            alert('test')
 
-        });
+        // $(document).on('click', ".btn-edit", function(e) {
+        //     e.preventDefault();
+        //     alert('test')
+
+        // });
     });
 </script>

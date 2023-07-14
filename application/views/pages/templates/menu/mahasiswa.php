@@ -79,7 +79,7 @@
                     </td>
                     <td>
                         <div>
-                        <a class="btn btn-warning btn-xs btn-edit"><i data-feather="edit"></i></a>
+                        <?php echo anchor('mahasiswa/edit/' . $mhs['id'], '<i data-feather="edit"></i>', array('class' => 'btn btn-warning btn-xs btn-edit')); ?>
                         </div>
                     </td>
                 </tr>
