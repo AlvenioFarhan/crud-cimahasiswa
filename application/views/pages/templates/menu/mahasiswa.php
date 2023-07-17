@@ -8,7 +8,7 @@
 <div class="card">
     <div class="card-body">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary btn-add" >
             <I data-feather="plus"></I>Tambah Data Mahasiswa
         </button>
         <!-- Modal -->
@@ -72,14 +72,16 @@
                     <td> <?php echo $mhs['nim'] ?></td>
                     <td> <?php echo $mhs['tgl_lahir'] ?></td>
                     <td> <?php echo $mhs['fakultas_name'] ? $mhs['fakultas_name'] : "---" ?></td>
-                    <td onclick="javascript: return confirm ('Anda yakin hapus data?')">
+                    <td>
                         <div>
-                        <?php echo anchor('mahasiswa/delete/' . $mhs['id'], '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete')); ?>
+                        <?php echo anchor('mahasiswa/delete/' . $mhs['id'], '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete', 'data-id' => $mhs['id'])); ?>
                         </div>
                     </td>
                     <td>
                         <div>
-                        <?php echo anchor('mahasiswa/edit/' . $mhs['id'], '<i data-feather="edit"></i>', array('class' => 'btn btn-warning btn-xs btn-edit')); ?>
+
+                        <button class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $mhs['id']?>"><i data-feather="edit"></i></button>
+                        <!-- <a class="btn btn-warning btn-xs btn-edit"><i data-feather="edit"></i></a> -->
                         </div>
                     </td>
                 </tr>

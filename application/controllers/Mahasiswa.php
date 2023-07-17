@@ -56,21 +56,34 @@ class Mahasiswa extends CI_Controller
 			->set_output(json_encode($return));
 	}
 
-	public function delete($id)
+	public function delete()
 	{
-		$where = array('id' => $id);
-		$this->Mahasiswa_model->delete_data($where, 'tb_mahasiswa');
-		redirect('mahasiswa');
+		$return = new stdClass();
+		$return->status = 0;
+		$return->message = '';
+		$id = $this->input->post('id');
+		if ($id > 0) 
+		{
+			$where = array('id' => $id);
+			$this->Mahasiswa_model->delete_data($where, 'tb_mahasiswa');
+			$return->message = 'Berhasil menghapus';
+		}else {
+			$return->message = 'Id tidak ada';
+		}
+
+		// redirect('mahasiswa');
+		echo json_encode($return);
 	}
 
-	public function edit($id)
+	public function edit()
 	{
-		// $id = $this->input->post('id');
+		$id = $this->input->post('id');
 		// var_dump($id); die;
 		// $where = array('id' => $id);
 		$data['mahasiswa'] = $this->Mahasiswa_model->edit_data($id);
-		$data['view'] = 'pages/templates/menu/edit';
-		$this->load->view('pages/templates/index', $data);
+		// $data['view'] = 'pages/templates/menu/edit';
+		// $this->load->view('pages/templates/index', $data);
+		echo json_encode($data);
 	}
 
 	public function update()
@@ -80,17 +93,18 @@ class Mahasiswa extends CI_Controller
 		$nim = $this->input->post('nim');
 		$tgl_lahir = $this->input->post('tgl_lahir');
 		$fakultas = $this->input->post('fakultas');
-	$data = array (
-		'nama'	=> $nama,
-		'nim'	=> $nim,
-		'tgl_lahir'	=> $tgl_lahir,
-		'fakultas'	=> $fakultas
-	);
-	$where = array (
-		'id' => $id
-	);
-	$this->Mahasiswa_model->update_data($where, $data);
-	redirect('mahasiswa');
+		// var_dump($this->input->post());
+		$data = array(
+			'nama'	=> $nama,
+			'nim'	=> $nim,
+			'tgl_lahir'	=> $tgl_lahir,
+			'fakultas'	=> $fakultas
+		);
+		$where = array(
+			'id' => $id
+		);
+		$this->Mahasiswa_model->update_data($where, $data);
+		// redirect('mahasiswa');
+		echo json_encode('success');
 	}
-
 }
