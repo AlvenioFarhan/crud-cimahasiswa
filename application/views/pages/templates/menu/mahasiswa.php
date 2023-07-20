@@ -88,8 +88,6 @@
             <?php endforeach; ?>
         </table>
         <!-- End Table Biasa -->
-
-
     </div>
 </div>
 

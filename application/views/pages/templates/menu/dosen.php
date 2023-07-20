@@ -1,13 +1,14 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
     <div>
         <h4 class="mb-3 mb-md-0">Data Dosen</h4>
+        <!-- <?php echo print_r($dosen, true);?> -->
     </div>
 </div>
 
 <div class="card">
     <div class="card-body">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary btn-add">
             <I data-feather="plus"></I>Tambah Data Dosen
         </button>
         <!-- Modal -->
@@ -22,19 +23,19 @@
                         <form action="<?php echo base_url('dosen/tambahaksi'); ?>">
                             <div class="form-group mb-3">
                                 <label for="">Nama Dosen :</label>
-                                <input type="text" id="mhsName" name="nama" class="form-control">
+                                <input type="text" id="dsnName" name="nama" class="form-control">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="">NIM Dosen:</label>
-                                <input type="text" id="mhsNIM" name="nim" class="form-control">
+                                <input type="text" id="dsnNIM" name="nim" class="form-control">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="">Tanggal Lahir :</label>
-                                <input type="date" id="mhsDate" name="tgl_lahir" class="form-control">
+                                <input type="date" id="dsnDate" name="tgl_lahir" class="form-control">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="">Fakultas :</label>
-                                <select id="mhsFakultas" class="form-select" name="fakultas">
+                                <select id="dsnFakultas" class="form-select" name="dsn_fakultas">
                                     <option>Pilih Fakultas</option>
                                     <option value="1">Teknik Informatika</option>
                                     <option value="2">Sistem Informasi</option>
@@ -57,6 +58,7 @@
                 <th>NIM Dosen</th>
                 <th>Tanggal Lahir</th>
                 <th>Fakultas</th>
+                <th colspan="1">Aksi</th>
             </tr>
 
             <?php
@@ -65,13 +67,49 @@
             ?>
                 <tr>
                     <td> <?php echo $no++ ?></td>
-                    <td> <?php echo $dsn->nama ?></td>
-                    <td> <?php echo $dsn->nim_dsn ?></td>
-                    <td> <?php echo $dsn->tgl_lahir ?></td>
-                    <td> <?php echo $dsn->fakultas ?></td>
+                    <td> <?php echo $dsn['dsn_nama'] ?></td>
+                    <td> <?php echo $dsn['dsn_nim'] ?></td>
+                    <td> <?php echo $dsn['dsn_tgl_lahir'] ?></td>
+                    <td> <?php echo $dsn['dsn_fakultas'] ? $dsn['dsn_fakultas'] : "---" ?></td>
+                    <td>
+                        <div>
+                            <?php echo anchor('dosen/delete/' . $dsn['dsn_id'], '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete', 'data-id' => $dsn['dsn_id'])); ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+
+                            <button class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $dsn['dsn_id'] ?>"><i data-feather="edit"></i></button>
+                            <!-- <a class="btn btn-warning btn-xs btn-edit"><i data-feather="edit"></i></a> -->
+                        </div>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </table>
+    </div>
+</div>
 
+<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+    <div>
+        <h4 class="mb-3 mb-md-0"> Data Table Dosen</h4>
+
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+
+        <table id="dosen" class="display" style="width:100%">
+            <thead>
+                <th>No</th>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Tanggal Lahir</th>
+                <th>Fakultas</th>
+                <th>Aksi</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
     </div>
 </div>
