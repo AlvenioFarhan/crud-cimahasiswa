@@ -62,12 +62,11 @@ class Mahasiswa extends CI_Controller
 		$return->status = 0;
 		$return->message = '';
 		$id = $this->input->post('id');
-		if ($id > 0) 
-		{
+		if ($id > 0) {
 			$where = array('id' => $id);
 			$this->Mahasiswa_model->delete_data($where, 'tb_mahasiswa');
 			$return->message = 'Berhasil menghapus';
-		}else {
+		} else {
 			$return->message = 'Id tidak ada';
 		}
 
@@ -106,5 +105,43 @@ class Mahasiswa extends CI_Controller
 		$this->Mahasiswa_model->update_data($where, $data);
 		// redirect('mahasiswa');
 		echo json_encode('success');
+	}
+
+	function loadData()
+	{
+		$return = new \stdClass();
+		$return->status = 0;
+		$return->messages = 'Data Loaded';
+		$columns = array(
+			'0' => 'id', // kolom dari table untuk order dan search
+			'1' => 'nama',
+			'2' => 'nim',
+			'3' => 'tgl_lahir',
+			'4' => 'fakultas_name',
+			'5' => 'id'
+		);
+		$limit = $this->input->post('length');
+		$start = $this->input->post('start');
+		$order = $columns[$this->input->post('order')[0]['column']];
+		$dir = $this->input->post('order')[0]['dir'];
+
+		$search = [];
+		if ($this->input->post('search')['value']) {
+			$searchs = $this->input->post('search')['value'];
+			foreach ($columns as $key => $value) {
+				$search[$value] = $searchs;
+			}
+		}
+
+		$params = array();
+		$datas = $this->Mahasiswa_model->get_all_mahasiswa($params, $search, $limit, $start, $order, $dir);
+		$totaldata = $this->Mahasiswa_model->get_count_mahasiswa($params, $search);
+		$return->recordsTotal = $totaldata;
+		$return->recordsFiltered = $totaldata;
+		$return->data = $datas;
+		$return->status = 1;
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($return));
 	}
 }

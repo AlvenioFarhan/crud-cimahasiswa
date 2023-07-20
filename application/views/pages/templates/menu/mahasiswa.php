@@ -1,14 +1,14 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
     <div>
         <h4 class="mb-3 mb-md-0">Data Mahasiswa</h4>
-        <!-- <?php echo print_r($mahasiswa, true);?> -->
+        <!-- <?php echo print_r($mahasiswa, true); ?> -->
     </div>
 </div>
 
 <div class="card">
     <div class="card-body">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-add" >
+        <button type="button" class="btn btn-primary btn-add">
             <I data-feather="plus"></I>Tambah Data Mahasiswa
         </button>
         <!-- Modal -->
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- Table Biasa -->
         <table class="table">
             <tr>
                 <th>No</th>
@@ -74,18 +74,49 @@
                     <td> <?php echo $mhs['fakultas_name'] ? $mhs['fakultas_name'] : "---" ?></td>
                     <td>
                         <div>
-                        <?php echo anchor('mahasiswa/delete/' . $mhs['id'], '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete', 'data-id' => $mhs['id'])); ?>
+                            <?php echo anchor('mahasiswa/delete/' . $mhs['id'], '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete', 'data-id' => $mhs['id'])); ?>
                         </div>
                     </td>
                     <td>
                         <div>
 
-                        <button class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $mhs['id']?>"><i data-feather="edit"></i></button>
-                        <!-- <a class="btn btn-warning btn-xs btn-edit"><i data-feather="edit"></i></a> -->
+                            <button class="btn btn-warning btn-xs btn-edit" data-id="<?php echo $mhs['id'] ?>"><i data-feather="edit"></i></button>
+                            <!-- <a class="btn btn-warning btn-xs btn-edit"><i data-feather="edit"></i></a> -->
                         </div>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </table>
+        <!-- End Table Biasa -->
+
+
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+    <div>
+        <h4 class="mb-3 mt-3 mb-md-0">Data Table Mahasiswa</h4>
+        <!-- <?php echo print_r($mahasiswa, true); ?> -->
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <!-- Start Data table  -->
+        <table id="mahasiswa" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Fakultas</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- content here -->
+            </tbody>
+        </table>
+        <!-- End datatable -->
     </div>
 </div>

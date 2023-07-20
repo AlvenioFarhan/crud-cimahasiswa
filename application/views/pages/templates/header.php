@@ -32,6 +32,7 @@ License: For each use you must have a valid license purchased only from above li
 
 	<!-- Plugin css for this page -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/vendors/flatpickr/flatpickr.min.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css'); ?>">
 	<!-- End plugin css for this page -->
 
 	<!-- inject:css -->

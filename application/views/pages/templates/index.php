@@ -34,6 +34,8 @@
   <!-- Plugin js for this page -->
   <script src="<?php echo base_url('assets/vendors/flatpickr/flatpickr.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/vendors/apexcharts/apexcharts.min.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/vendors/datatables.net/jquery.dataTables.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js'); ?>"></script>
   <!-- End plugin js for this page -->
 
   <!-- inject:js -->
