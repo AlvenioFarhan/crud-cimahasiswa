@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function() {
-        let url = "<?php echo base_url('dosen'); ?>"
+        let url = "<?php echo base_url('dosen'); ?>";
 
         let isnew = true;
         let idn = null;
@@ -40,11 +40,11 @@
 
             } else {
                 var data = {
-                    'id': idn,
-                    'nama': $("dsnName").val(), // -> HOW TO GET DATA FROM INPUT REGULER FORM
-                    'nim': $("dsnNIM").val(),
-                    'tgl_lahir': $("dsnDate").val(),
-                    'fakultas': $("dsnFakultas").val(),
+                    'dsn_id': idn,
+                    'dsn_nama': $("#dsnName").val(), // -> HOW TO GET DATA FROM INPUT REGULER FORM
+                    'dsn_nim': $("#dsnNIM").val(),
+                    'dsn_tgl_lahir': $("#dsnDate").val(),
+                    'dsn_fakultas': $("#dsnFakultas").val(),
                 }
                 $.ajax({
                     url: "<?php echo base_url('dosen/update') ?>",
@@ -104,12 +104,13 @@
 
                 success: function(r) {
                     var data_dsn = r.dosen[0];
+                    // idn = data_dsn.dsn_id;
                     $("#dsnName").val(data_dsn.dsn_nama);
                     $("#dsnNIM").val(data_dsn.dsn_nim);
                     $("#dsnDate").val(data_dsn.dsn_tgl_lahir);
                     $("#dsnFakultas").val(data_dsn.dsn_fakultas).change();
                     $("#exampleModal").modal("show");
-                    console.log(data_dsn.nama);
+                    console.log(data_dsn.dsn_nama);
                 }
             })
         });

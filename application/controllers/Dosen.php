@@ -67,20 +67,20 @@ class Dosen extends CI_Controller
 
     public function update()
     {
-        $id = $this->input->post('dsn_id');
-        $nama = $this->input->post('dsn_nama');
-        $nim = $this->input->post('dsn_nim');
-        $tgl_lahir = $this->input->post('dsn_tgl_lahir');
-        $fakultas = $this->input->post('dsn_fakultas');
+        $dsn_id = $this->input->post('dsn_id');
+        $dsn_nama = $this->input->post('dsn_nama');
+        $dsn_nim = $this->input->post('dsn_nim');
+        $dsn_tgl_lahir = $this->input->post('dsn_tgl_lahir');
+        $dsn_fakultas = $this->input->post('dsn_fakultas');
         // var_dump($this->input->post());
         $data = array(
-            'dsn_nama'    => $nama,
-            'dsn_nim'    => $nim,
-            'dsn_tgl_lahir'    => $tgl_lahir,
-            'dsn_fakultas'    => $fakultas
+            'dsn_nama'    => $dsn_nama,
+            'dsn_nim'    => $dsn_nim,
+            'dsn_tgl_lahir'    => $dsn_tgl_lahir,
+            'dsn_fakultas'    => $dsn_fakultas
         );
         $where = array(
-            'dsn_id' => $id
+            'dsn_id' => $dsn_id
         );
         $this->Dosen_model->update_data($where, $data);
         // redirect('mahasiswa');

@@ -70,7 +70,7 @@
                     <td> <?php echo $dsn['dsn_nama'] ?></td>
                     <td> <?php echo $dsn['dsn_nim'] ?></td>
                     <td> <?php echo $dsn['dsn_tgl_lahir'] ?></td>
-                    <td> <?php echo $dsn['dsn_fakultas'] ? $dsn['dsn_fakultas'] : "---" ?></td>
+                    <td> <?php echo $dsn['fakultas_name'] ? $dsn['fakultas_name'] : "---" ?></td>
                     <td>
                         <div>
                             <?php echo anchor('dosen/delete/' . $dsn['dsn_id'], '<i data-feather="trash"></i>', array('class' => 'btn btn-danger btn-xs btn-delete', 'data-id' => $dsn['dsn_id'])); ?>
