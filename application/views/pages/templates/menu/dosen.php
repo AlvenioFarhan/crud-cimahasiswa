@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="">Fakultas :</label>
-                                <select id="dsnFakultas" class="form-select" name="dsn_fakultas">
+                                <select id="dsnFakultas" class="form-select" name="fakultas">
                                     <option>Pilih Fakultas</option>
                                     <option value="1">Teknik Informatika</option>
                                     <option value="2">Sistem Informasi</option>

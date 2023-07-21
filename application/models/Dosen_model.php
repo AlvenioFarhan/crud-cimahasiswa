@@ -3,8 +3,13 @@ class Dosen_model extends CI_Model
 {
     public function tampil_data()
     {
-        // $this->db->join('fakultas'. 'fakultas.fakultas_id=tb_dosen.fakultas', 'left');
+        $this->db->join('tb_fakultas', 'tb_fakultas.fakultas_id=tb_dosen.dsn_fakultas', 'left');
         return $this->db->get('tb_dosen')->result_array();
+        // $this->db->select('*');
+        // $this->db->from('tb_mahasiswa');
+        // $this->db->join('tb_fakultas, tb_fakultas.fakultas_id = tb_mahasiswa.fakultas');
+        // $query = $this->db->get();
+        // return $query;
     }
 
     function  get_all_dosen($params = null, $search = null, $limit = null, $start = null, $order = null, $dir = null)
@@ -22,7 +27,7 @@ class Dosen_model extends CI_Model
         if ($limit) {
             $this->db->limit($limit, $start);
         }
-        return $this->db->get('tb_mahasiswa')->result_array();
+        return $this->db->get('tb_dosen')->result_array();
     }
 
     function get_count_dosen($params = null, $search = null)
@@ -77,13 +82,13 @@ class Dosen_model extends CI_Model
     }
     public function edit_data($where)
     {
-        $this->db->where('id', $where);
-        return $this->db->get('tb_mahasiswa')->result_array();
+        $this->db->where('dsn_id', $where);
+        return $this->db->get('tb_dosen')->result_array();
     }
 
     public function update_data($where, $data)
     {
         $this->db->where($where);
-        return $this->db->update('tb_mahasiswa', $data);
+        return $this->db->update('tb_dosen', $data);
     }
 }
