@@ -32,19 +32,19 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="dashboard.html" class="nav-link">
+        <a href="<?php echo base_url('jadwal');?>" class="nav-link">
           <i class="link-icon" data-feather="book"></i>
           <span class="link-title">Jadwal Kuliah</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="dashboard.html" class="nav-link">
+        <a href="<?php echo base_url('fakultas');?>" class="nav-link">
           <i class="link-icon" data-feather="table"></i>
           <span class="link-title">Fakultas</span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="dashboard.html" class="nav-link">
+        <a href="<?php echo base_url('pengaturan');?>" class="nav-link">
           <i class="link-icon" data-feather="settings"></i>
           <span class="link-title">Pengaturan</span>
         </a>
